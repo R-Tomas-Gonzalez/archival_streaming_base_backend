@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :game_favorites
+  resources :movie_favorites
   resources :users
   resources :sessions, only: [:create]
   resources :registrations, only: [:create]
