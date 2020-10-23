@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: MyString
+  original_title: MyString
+  backdrop_path: MyString
+  poster_path: MyString
+  genre_ids: MyString
+  release_date: MyString
+  user: one
+
+two:
+  id: MyString
+  original_title: MyString
+  backdrop_path: MyString
+  poster_path: MyString
+  genre_ids: MyString
+  release_date: MyString
+  user: two

@@ -10,10 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_08_174519) do
+ActiveRecord::Schema.define(version: 2020_10_21_222745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "game_favorites", force: :cascade do |t|
+    t.string "background_image"
+    t.string "name"
+    t.string "game_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_game_favorites_on_user_id"
+  end
+
+  create_table "image_favorites", force: :cascade do |t|
+    t.string "image_id"
+    t.string "name"
+    t.string "image_url"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_image_favorites_on_user_id"
+  end
+
+  create_table "movie_favorites", force: :cascade do |t|
+    t.integer "movie_id"
+    t.string "original_title"
+    t.string "backdrop_path"
+    t.string "poster_path"
+    t.integer "genre_ids", array: true
+    t.string "release_date"
+    t.string "overview"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_movie_favorites_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -23,4 +57,7 @@ ActiveRecord::Schema.define(version: 2020_10_08_174519) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "game_favorites", "users"
+  add_foreign_key "image_favorites", "users"
+  add_foreign_key "movie_favorites", "users"
 end
