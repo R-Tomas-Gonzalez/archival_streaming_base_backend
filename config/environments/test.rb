@@ -6,6 +6,10 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+
+  config.middleware.use ActionDispatch::Cookies
+  config.middleware.use ActionDispatch::Session::CookieStore, key: '_archival_streaming_base'
+
   config.cache_classes = false
   config.action_view.cache_template_loading = true
 
