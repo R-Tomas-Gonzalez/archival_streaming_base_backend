@@ -6,8 +6,6 @@ class SessionsController < ApplicationController
         # .try(:authenticate, params["user"]["password"])
         if user
             session[:user_id] = user.id
-            @stored_session = session[:user_id]
-            puts "This is the session: #{session[:user_id]}"
             
             render json: {
                 status: :created,
