@@ -5,7 +5,7 @@ Rails.application.configure do
 
   config.middleware.use ActionDispatch::Cookies
   config.middleware.use ActionDispatch::Session::CookieStore, key: '_archival_streaming_base'
-  config.middleware.use ActionRecord::SessionStore, key: '_archival_streaming_base'
+  config.middleware.use ActiveRecord::SessionStore, key: '_archival_streaming_base'
 
   config.cache_classes = true
 
