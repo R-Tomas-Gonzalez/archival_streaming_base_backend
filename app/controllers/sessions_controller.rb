@@ -6,11 +6,11 @@ class SessionsController < ApplicationController
         # .try(:authenticate, params["user"]["password"])
         if @user
             session[:user_id] = @user.id
-
+            puts "checking from sessions_controller:#{session}" 
             render json: {
                 status: :created,
                 logged_in: true,
-                user: user
+                user: @user
             }
         else
             render json: {status: 401}
