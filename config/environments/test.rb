@@ -9,6 +9,9 @@ Rails.application.configure do
 
   config.middleware.use ActionDispatch::Cookies
   config.middleware.use ActionDispatch::Session::CookieStore, key: '_archival_streaming_base'
+  config.middleware.use ActionDispatch::Session::SessionStore, key: '_archival_streaming_base'
+
+
 
   config.cache_classes = false
   config.action_view.cache_template_loading = true

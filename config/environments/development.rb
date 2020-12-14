@@ -6,7 +6,9 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.middleware.use ActionDispatch::Cookies
   config.middleware.use ActionDispatch::Session::CookieStore, key: '_archival_streaming_base'
-  
+  config.middleware.use ActionDispatch::Session::SessionStore, key: '_archival_streaming_base'
+
+
   config.cache_classes = false
 
   # Do not eager load code on boot.
