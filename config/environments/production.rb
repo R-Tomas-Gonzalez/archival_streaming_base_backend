@@ -3,9 +3,7 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
 
-  config.middleware.use ActionDispatch::Cookies
-  config.middleware.use ActionDispatch::Session::CookieStore, key: '_archival_streaming_base'
-  config.middleware.use ActiveRecord::SessionStore
+  
 
   config.cache_classes = true
 
