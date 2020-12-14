@@ -3,8 +3,8 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
 
-  config.middleware.use ActionDispatch::Cookies
-  config.middleware.use ActionDispatch::Session::CookieStore, key: '_archival_streaming_base'
+  # config.middleware.use ActionDispatch::Cookies
+  config.middleware.use ActionDispatch::Session::CookieStore, key: '_archival_streaming_base', domain: "archival-streaming-base.herokuapp.com/"
 
   config.cache_classes = true
 

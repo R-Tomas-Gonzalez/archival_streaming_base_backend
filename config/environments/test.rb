@@ -8,7 +8,7 @@ Rails.application.configure do
 
 
   config.middleware.use ActionDispatch::Cookies
-  config.middleware.use ActionDispatch::Session::CookieStore, key: '_archival_streaming_base'
+  config.middleware.use ActionDispatch::Session::CookieStore, key: '_archival_streaming_base', domain: "archival-streaming-base.herokuapp.com/"
 
   config.cache_classes = false
   config.action_view.cache_template_loading = true
