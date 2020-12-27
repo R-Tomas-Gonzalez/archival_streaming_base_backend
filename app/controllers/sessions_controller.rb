@@ -5,8 +5,10 @@ class SessionsController < ApplicationController
         user = User.find_by(email: params["user"]["email"])
         # puts "this is the user: #{@user.id}"
         # .try(:authenticate, params["user"]["password"])
+
+        session[:user_id] = user.id
+
         if user
-            session[:user_id] = user.id
             render json: {
                 status: :created,
                 logged_in: true,
