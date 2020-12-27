@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
     end
 
     def logged_in
-        puts "this is the logged_in status: #{@current_user}"
+        # puts "this is the logged_in status: #{@current_user}"
         
         if @current_user
             render json: {
