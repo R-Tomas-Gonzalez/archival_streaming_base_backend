@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
         session[:user_id] = user.id
 
-        @current_user = session[:user_id]
+        # @current_user = session[:user_id]
 
         if user
             render json: {
