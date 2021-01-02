@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
     def create
         user = User.find_by(email: params["user"]["email"])
-        puts "this is the user: #{@user.id}"
+        puts "this is the user: #{user.id}"
         # .try(:authenticate, params["user"]["password"])
         session[:user_id] = user.id
         # @current_user = session[:user_id]
