@@ -1,11 +1,13 @@
 class SessionsController < ApplicationController
-    include CurrentUserConcern
+    # include CurrentUserConcern
 
     def create
         @user = User.find_by(email: params["user"]["email"])
         puts "this is the user: #{@user.id}"
         # .try(:authenticate, params["user"]["password"])
         session[:user_id] = @user.id
+
+        @current_user = session[:user_id]
         # @current_user = session[:user_id]
 
         if @user
@@ -21,7 +23,6 @@ class SessionsController < ApplicationController
 
     def logged_in
         # puts "this is the logged_in status: #{@current_user}"
-        
         if @current_user
             render json: {
                 logged_in: true,
