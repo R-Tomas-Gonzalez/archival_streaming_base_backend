@@ -2,14 +2,19 @@ class SessionsController < ApplicationController
     include CurrentUserConcern
 
     def create
-        @user = User.find_by(email: params["user"]["email"])
+        user = User.find_by(email: params["user"]["email"])
+        # puts "this is the user: #{@user.id}"
+        # .try(:authenticate, params["user"]["password"])
+        
+        # @current_user = session[:user_id]
 
-        if @user
-            session[:user_id] = @user.id
+        if user
+            session[:user_id] = user.id
+            puts "this is from the session_controller: #{session[:user_id]}"
             render json: {
                 status: :created,
                 logged_in: true,
-                user: @user
+                user: user
             }
         else
             render json: {status: 401}
