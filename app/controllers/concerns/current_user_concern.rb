@@ -6,7 +6,7 @@ extend ActiveSupport::Concern
 
     def set_current_user
 
-        puts "user from the concern: #{session[:user]}"
+        # puts "user from the concern: #{session[:user]}"
         # @current_user = User.find_by_id(session[:user_id])
 
         # puts "this is the session from the concern:#{session[:user_id]}"
@@ -14,7 +14,7 @@ extend ActiveSupport::Concern
 
         if session[:user_id]
             @current_user = User.find(session[:user_id])
-            puts "from the concern: #{@current_user}"
+            # puts "from the concern: #{@current_user}"
         end
     end
 
