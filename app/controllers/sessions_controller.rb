@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
 
         if user
             session[:user_id] = user.id
+            puts "session user from the controller: #{session[:user_id]}"
             render json: {
                 status: :created,
                 logged_in: true,
@@ -21,7 +22,7 @@ class SessionsController < ApplicationController
     end
 
     def logged_in
-        # puts "this is the logged_in status: #{@current_user}"
+        puts "this is the logged_in status: #{@current_user}"
         if @current_user
             render json: {
                 logged_in: true,
