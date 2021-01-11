@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
         # @current_user = session[:user_id]
 
         if user
-            session[:user_id] = user.id
-            puts "this is from the session_controller: #{session[:user_id]}"
+            session[:user] = user
+            puts "User from the sessions controller:#{session[:user]}" 
             render json: {
                 status: :created,
                 logged_in: true,
