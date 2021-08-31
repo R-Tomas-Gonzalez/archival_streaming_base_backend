@@ -18,6 +18,9 @@ class SessionsController < ApplicationController
     end
 
     def logged_in
+        if session[:user_id]
+            @current_user = User.find(session[:user_id])
+        end
         if @current_user
             render json: {
                 logged_in: true,
