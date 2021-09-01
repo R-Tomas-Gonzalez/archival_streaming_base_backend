@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
     include CurrentUserConcern
-    skip_before_action :create
 
     def create
         user = User.find_by(email: params["user"]["email"])
